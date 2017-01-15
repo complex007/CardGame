@@ -186,6 +186,7 @@ j). 建立Game class
 a). 在doudizhu.db文件中，新建table叫 player
 
 |id| Int primary key, auto increase|
+|--------------|-------------------|
 |Name|text|
 |wealth|int|
 |avatar|text|
@@ -233,7 +234,7 @@ d). 在list的每一行末尾加入delete按钮
 
 ## 11. 斗地主（二）
 a). 参考这个[项目](http://vineetgarg90.github.io/playing-cards/) ，源码[在这里](https://github.com/vineetgarg90/playing-cards)
-任意形式在浏览器显示54张牌的图片（不是css做出来的，是图片）
+任意形式在浏览器显示54张牌的图片（不是css做出来的，图片）
 
 
 
