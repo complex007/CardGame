@@ -1,0 +1,20 @@
+{
+  "name": "CardFlask",
+  "homepage": "https://github.com/complex007/CardGame",
+  "authors": [
+    "complex007 <iris_yuqi.wang@outlook.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1"
+  }
+}

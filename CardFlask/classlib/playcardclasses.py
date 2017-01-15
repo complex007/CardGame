@@ -9,15 +9,18 @@ class Card:
     def toDict(self):
         cdict={'id':self.id,'name':self.name,'image':self.image,'value':self.value}
         return cdict
+
 class CardBundle:
     def __init__(self,cardList):
         self.cards=cardList
+
 class Player:
     def __init__(self,id,name,wealth,avatar):
         self.id=id
         self.name=name
         self.wealth=wealth
         self.avatar=avatar
+
 class GameRole:
     def __init__(self,player,cardList):
         self.player=player
@@ -27,19 +30,23 @@ class GameRole:
     def discard(self,cardList):
         self.cards.remove(cardList)
         return cardList
+
 class Farmer(Player):
     def __init__(self):
         Player.__init__(self)
+
 class LandLord(Player):
     def __init__(self):
         Player.__init__(self)
+
 class Dispipe:
     def __init__(self,cards):
         self.cards=cards
-    def receive(self,catdbundles):
+    def receive(self, catdbundles):
         self.cards.add(catdbundles)
     def cardCount(self):
         return len(self.cards)
+
 class Game:
     def __init__(self,player1,player2,player3):
         self.player1=player1
