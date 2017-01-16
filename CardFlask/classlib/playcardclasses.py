@@ -20,6 +20,9 @@ class Player:
         self.name=name
         self.wealth=wealth
         self.avatar=avatar
+    def toDict(self):
+        cdict={'id':self.id,'name':self.name,'wealth':self.wealth,'avatar':self.avatar}
+        return cdict
 
 class GameRole:
     def __init__(self,player,cardList):
