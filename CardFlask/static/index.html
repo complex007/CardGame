@@ -6,10 +6,38 @@
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <script src="bower_components/jquery/dist/jquery.js"></script>
-
+<script type=text/javascript>
+     $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+   $(function() {
+    var submit_form = function(e) {
+      $.getJSON($SCRIPT_ROOT + '/_add_numbers', {
+        a: $('input[name="param"]').val(),
+        b: $('input[name="val"]').val()
+      }, function(data) {
+        $('#result').text(data.result);
+        $('input[name=a]').focus().select();
+      });
+      return false;
+    };
+    $('a#calculate').bind('click', submit_form);
+    $('input[type=text]').bind('keydown', function(e) {
+      if (e.keyCode == 13) {
+        submit_form(e);
+      }
+    });
+    $('input[name=a]').focus();
+  });
+</script>
 </head>
 <body>
-<input type="date">
+<h1>jQuery Example</h1>
+<p><input type=text size=5 name=param> +
+   <input type=text size=5 name=val> =
+   <span id=result>?</span>
+<p><a href=# id=calculate>calculate server side</a>
+
 <script src="js/main.js"></script>
+
+
 </body>
 </html>
