@@ -1,5 +1,4 @@
-#!/usr/bin/env python
-#-*-encoding:utf-8 -*-
+
 import sqlite3
 
 from classlib import playcardclasses

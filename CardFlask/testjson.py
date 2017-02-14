@@ -1,19 +1,22 @@
 from flask import Flask,Response
 from flask import request
 
-from classlib import dbImpl,playcardclasses
+from classlib import dbImpl,playcardclasses,jsonImpl
 import json
 
 app = Flask(__name__)
-dbtest=dbImpl.dbImpl()
+# dbtest=dbImpl.dbImpl()
+
+dbtest=jsonImpl.jsonImpl()
 
 @app.route('/api/player',methods=["GET"])
 def list_player():
-    players=dbtest.selectAll()
-    listplayers=[]
-    for item in players:
-        player= playcardclasses.Player(item[0],item[1],item[2],item[3])
-        listplayers.append(player.toDict())
+    # players=dbtest.selectAll()
+    # listplayers=[]
+    # for item in players:
+    #     player= playcardclasses.Player(item[0],item[1],item[2],item[3])
+    #     listplayers.append(player.toDict())
+    listplayers=dbtest.selectAll();
     return Response(json.dumps(listplayers))
 
 @app.route('/api/player/<int:userid>',methods=["GET"])
