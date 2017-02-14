@@ -1,4 +1,4 @@
-from flask import Flask, render_template,request,redirect
+from flask import Flask, render_template,request,redirect, url_for
 from classlib import dbImpl,playcardclasses
 
 
@@ -54,9 +54,9 @@ def list():
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return url_for('static', filename='listallplayers.html')
 
-# if __name__ == '__main__':
-#     app.debug = True
-#     app.run()
+if __name__ == '__main__':
+    app.debug = True
+    app.run()
 
