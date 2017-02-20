@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <script src="bower_components/jquery/dist/jquery.js"></script>
+</head>
+<body>
+
+
+         <h3>Player Information</h3>
+         avatar<br>
+          <input type = "text" id= "avatar" /><br>
+
+         name<br>
+         <input type = "text" id = "name" /><br>
+
+         wealth<br>
+
+         <input type = "text" id = "wealth" /><br>
+         <button id="update">Update</button><br>
+
+
+
+   <script type="application/javascript">
+
+    var playerid=getUrlParameter('id')
+    var uri = 'http://127.0.0.1:5000/api/player/'+playerid
+    $(document).ready(function ()
+    {
+        $.getJSON(uri,function (data)
+        {
+            $.each(data, function (key, item) {
+                $('#name').val(item.name);
+                $('#avatar').val(item.avatar);
+                $('#wealth').val(item.wealth);
+            })
+        });
+        $( "#update" ).click(function() {
+            var pname= $('#name').val();
+            var pavatar= $('#avatar').val();
+            var pwealth= $('#wealth').val();
+            console.log(pwealth)
+            var dataObject = {"wealth": pwealth, "id": playerid, "avatar":pavatar, "name": pname};
+            $.ajax({
+                url: uri,
+                type: 'PUT',
+                contentType:'application/json',
+                dataType:'json',
+                data:JSON.stringify(dataObject),
+                complete: function(result) {
+                            location.href = "http://127.0.0.1:5000/static/listallplayers.html";
+                }
+            });
+        });
+
+    })
+
+
+     function getUrlParameter(sParam) {
+        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : sParameterName[1];
+            }
+    }
+};
+</script>
+</body>
+</html>

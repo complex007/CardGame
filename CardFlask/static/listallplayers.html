@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+
+
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+
+</head>
+<body>
+  <h2>All Players</h2>
+
+    <table border = 1 id="ptable">
+             <thead>
+                <td>id</td>
+                <td>name</td>
+                <td>avatar</td>
+                <td>wealth</td>
+                <td>update</td>
+             <td>delete</td>
+             </thead>
+
+          </table>
+     <a href="http://127.0.0.1:5000/static/newplayer.html">Create</a>
+
+   <script type="application/javascript">
+
+    var uri = 'http://127.0.0.1:5000/api/player'
+    $(document).ready(function ()
+    {
+        var playerid=getUrlParameter('id')
+
+        var action=getUrlParameter('action')
+
+             if (action=="delete")
+             {
+                $.ajax({
+                    url: uri+'/'+playerid,
+                    type: 'DELETE',
+                    accept:"application/json, text/javascript, */*; q=0.01",
+                     complete: function(result) {
+                        location.href = "http://127.0.0.1:5000/static/listallplayers.html";
+                        }
+                });
+             }
+             else
+             {
+
+                $.getJSON(uri,function (data)
+                {
+                    $.each(data, function (key, item)
+                        {
+                            $('#ptable').append('<tr id="tr'+item.id+'"></tr>');
+                            $('<td id="id">').appendTo($('#tr'+item.id));
+                            $('<td id="name">').appendTo($('#tr'+item.id));
+                            $('<td id="avatar">').appendTo($('#tr'+item.id));
+                            $('<td id="wealth">').appendTo($('#tr'+item.id));
+                            $('#tr'+item.id).append('<td><a href="http://127.0.0.1:5000/static/playerdetail.html?id='+item.id+'">update</a></td>');
+                            $('#tr'+item.id).append('<td><a id="delete" href="http://127.0.0.1:5000/static/listallplayers.html?action=delete&id='+item.id+'">delete</a></td>');
+                            $('<td id="delete">').appendTo($('#tr'+item.id));
+                            $('#tr'+item.id+' #id').html(item.id);
+                            $('#tr'+item.id+' #name').html(item.name);
+                            $('#tr'+item.id+' #avatar').html(item.avatar);
+                            $('#tr'+item.id+' #wealth').html(item.wealth);
+                        }) ;
+                });
+
+             }
+
+
+
+
+        function getUrlParameter(sParam) {
+            var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : sParameterName[1];
+                }
+            }
+        }
+
+
+    })
+</script>
+</body>
+</html>

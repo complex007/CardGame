@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+</head>
+<body>
+ <table border = 1>
+         <thead>
+            <td>id</td>
+            <td>name</td>
+            <td>avatar</td>
+            <td>wealth</td>
+            <td>update</td>
+         <td>delete</td>
+         </thead>
+
+         {% for player in players %}
+            <tr>
+               <td>{{player.id}}</td>
+               <td>{{player.name}}</td>
+               <td> {{ player.avatar}}</td>
+               <td>{{player.wealth}}</td>
+            <td><a href="/hello/{{player.id}}">update</a></td>
+            <td><a href="/delete/{{player.id}}">delete</a></td>
+            </tr>
+         {% endfor %}
+      </table>
+
+<a href="/create">create new player</a>
+</body>
+</html>

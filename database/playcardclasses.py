@@ -7,7 +7,7 @@ class Card:
         self.image=image
         self.value=value
     def toDict(self):
-        cdict={id:self.id,name:self.name,image:self.image,value:self.value}
+        cdict={'id':self.id,'name':self.name,'image':self.image,'value':self.value}
         return cdict
 class CardBundle:
     def __init__(self,cardList):
@@ -36,8 +36,8 @@ class LandLord(Player):
 class Dispipe:
     def __init__(self,cards):
         self.cards=cards
-    def receive(self,catdBundles):
-        self.cards.add(catBundles)
+    def receive(self,catdbundles):
+        self.cards.add(catdbundles)
     def cardCount(self):
         return len(self.cards)
 class Game:
