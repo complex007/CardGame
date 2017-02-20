@@ -239,9 +239,9 @@ b). 将牌分成两组，单击任意一张卡片，都会让这张卡片显示�
 安装并学习python 的http client 模块[requests](http://cn.python-requests.org/zh_CN/latest/)，实现以下功能：
 把第七题里面的rest api封装成python客户端的SDK
 写一个名叫PlayerClient的class，class里面有5个public method，分别是
-##### Player getById(id)
-##### [Player] getAll()
 ##### Player createNew(Player newPlayer)
+##### [Player] getAll()
+##### Player getById(id)
 ##### Player update(Player player)
 ##### Player delete(id)
 
