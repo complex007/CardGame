@@ -229,14 +229,20 @@ d). 在list的每一行末尾加入delete按钮
 新建一个名为player.json的文件，请使用这个文件替代第6和第7题中的sqlite数据库
 
 
-## 10. Go NoSQL
-安装mongodb和python的[mongodb library](https://docs.mongodb.com/ecosystem/drivers/python/)，使用mongodb替代第9题中的player.json文件。
-
-## 11. 斗地主（二）
+## 10. 斗地主（二）
 a). 参考这个[项目](http://vineetgarg90.github.io/playing-cards/) ，源码[在这里](https://github.com/vineetgarg90/playing-cards)
 任意形式在浏览器显示54张牌的图片（不是css做出来的卡片，使用png图片）
+
 b). 将牌分成两组，单击任意一张卡片，都会让这张卡片显示到另外一组。【复习codecademy上面的jquery】
 
-
+## 11. http 客户端
+安装并学习python 的http client 模块[requests](http://cn.python-requests.org/zh_CN/latest/)，实现以下功能：
+把第七题里面的rest api封装成python客户端的SDK
+写一个名叫PlayerClient的class，class里面有5个public method，分别是
+##### Player getById(id)
+##### [Player] getAll()
+##### Player createNew(Player newPlayer)
+##### Player update(Player player)
+##### Player delete(id)
 
 
