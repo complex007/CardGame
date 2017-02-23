@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cards</title>
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<style>
+    .card {
+width: 100px;
+height: 150px;
+    }
+</style>
+</head>
+<body>
+
+<h1>Cards</h1>
+
+<div class="row">
+    <div class="col-sm-4">
+        <h2>area1</h2>
+        <div id="cardarea1">
+
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+
+        <h2>area2</h2>
+        <div id="cardarea2">
+
+        </div>
+    </div>
+
+</div>
+<script type="application/javascript">
+    var uri = 'http://127.0.0.1:5000/api/card'
+    $(document).ready(function () {
+         $.getJSON(uri,function (data)
+                {
+                    $.each(data, function (key, item)
+                        {
+                            $('#cardarea1').append('<img class="card" id="'+item.id+'" src="cards_png/'+item.image+'">')
+                        }) ;
+                });
+         $('#cardarea1').click(function(){
+
+             $('body').on('click','img',function(){
+
+              var imgid=this.id;
+              $('#'+imgid).appendTo('#cardarea2');
+
+            });
+
+         });
+        $('#cardarea2').click(function(){
+
+         $('body').on('click','img',function(){
+
+              var imgid=this.id;
+              $('#'+imgid).appendTo('#cardarea1');
+
+          });
+
+         });
+
+
+
+
+
+
+
+
+
+
+
+
+
+    })
+</script>
+</body>
+</html>
