@@ -229,14 +229,43 @@ d). 在list的每一行末尾加入delete按钮
 新建一个名为player.json的文件，请使用这个文件替代第6和第7题中的sqlite数据库
 
 
-## 10. Go NoSQL
-安装mongodb和python的[mongodb library](https://docs.mongodb.com/ecosystem/drivers/python/)，使用mongodb替代第9题中的player.json文件。
-
-## 11. 斗地主（二）
+## 10. 斗地主（二）
 a). 参考这个[项目](http://vineetgarg90.github.io/playing-cards/) ，源码[在这里](https://github.com/vineetgarg90/playing-cards)
 任意形式在浏览器显示54张牌的图片（不是css做出来的卡片，使用png图片）
+
 b). 将牌分成两组，单击任意一张卡片，都会让这张卡片显示到另外一组。【复习codecademy上面的jquery】
 
-## 12. Socket基础
+## 11. HTTP 客户端
+安装并学习python 的http client 模块[requests](http://cn.python-requests.org/zh_CN/latest/)，实现以下功能：
+把第七题里面的rest api封装成python客户端的SDK
+写一个名叫PlayerClient的class，class里面有5个public method，分别是
+||
+|---------|
+| Player createNew(Player newPlayer)|
+| [Player] getAll()|
+| Player getById(id)|
+|Player update(Player player)|
+|Player delete(id)|
 
+## 12. Import/Export from/to google sheet
+谷歌的office套件有比较完善的api提供给开发者来操作他们的云端文档，阅读谷歌开发者[关于google sheet的介绍](https://developers.google.com/sheets/api/guides/concepts)，以及这篇[quickstart](https://developers.google.com/sheets/api/quickstart/python)，完成以下任务：
+a). import data: 用python读取[这个文档](https://docs.google.com/spreadsheets/d/1HXNRKB32M8ggrbjJqo7clKPvD2v34ib3rQpQRL177i4/edit?usp=sharing)里面的数据，然后把里面的player加入到你的本地数据库里；
+b). export data：新建一个空google sheet，把本地数据库的数据导出到这问文档里。
+##### 【注意】请勿commit和push你的client_secret.json文件！！！
 
+## 13. Socket基础
+阅读[这篇](http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001386832511628f1fe2c65534a46aa86b8e654b6d3567c000)文章，实现如下功能：
+a). 实现一个TCP server，如果client发送一个数字，返回这个数字乘以2的数字；如果client发送一个非数字，返回这个字符串加上Hello。使用网络调试助手来测试你的TCP server，如果client发送一个数字，返回这个数字乘以2的数字；如果client发送一个非数字，返回这个字符串加上Hello。使用网络调试助手来测试你的tcp
+b). 写一个TCP client来测试你的TCP Server
+c). 阅读[这篇](http://www.cnblogs.com/vamei/archive/2012/10/30/2744955.html)和[这篇](http://www.cnblogs.com/vamei/archive/2012/10/31/2747885.html)，深入理解HTTP和TCP。
+
+## 15. 数据结构之队列：
+a). 使用python的list实现一个队列（Queue）类，名叫MyQueue，它有如下方法：
+|方法|解释|
+|---|----|
+|void \__init\__()|初始化一个空的list|
+|object dequeue()|离开队列：从list中取出第一个item，并返回这个item|
+|void enqueue(object item)|加入队列：在list尾部加入一个item|
+|boolean isEmpty()|队列是否为空|
+
+......
