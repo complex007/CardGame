@@ -249,15 +249,25 @@ b). 将牌分成两组，单击任意一张卡片，都会让这张卡片显示�
 
 ## 12. Import/Export from/to google sheet
 谷歌的office套件有比较完善的api提供给开发者来操作他们的云端文档，阅读谷歌开发者[关于google sheet的介绍](https://developers.google.com/sheets/api/guides/concepts)，以及这篇[quickstart](https://developers.google.com/sheets/api/quickstart/python)，完成以下任务：
-a). import data: 用python读取[这个文档](https://docs.google.com/spreadsheets/d/1HXNRKB32M8ggrbjJqo7clKPvD2v34ib3rQpQRL177i4/edit?usp=sharing)里面的数据，然后把里面的player加入到你的本地数据库里；
+
+a). import data: 用python读取[这个文档](https://github.com/burnash/gspread)里面的数据，然后把里面的player加入到你的本地数据库里；
+
 b). export data：新建一个空google sheet，把本地数据库的数据导出到这问文档里。
 ##### 【注意】请勿commit和push你的client_secret.json文件！！！
 
 ## 13. Socket基础
 阅读[这篇](http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001386832511628f1fe2c65534a46aa86b8e654b6d3567c000)文章，实现如下功能：
-a). 实现一个TCP server，如果client发送一个数字，返回这个数字乘以2的数字；如果client发送一个非数字，返回这个字符串加上Hello。使用网络调试助手来测试你的TCP server，如果client发送一个数字，返回这个数字乘以2的数字；如果client发送一个非数字，返回这个字符串加上Hello。使用网络调试助手来测试你的tcp
+a). 实现一个TCP server，如果client发送一个数字，返回这个数字乘以2的数字；如果client发送一个非数字，返回这个字符串加上Hello。使用网络调试助手来测试你的TCP server，如果client发送一个数字，返回这个数字乘以2的数字；如果client发送一个非数字，返回这个字符串加上Hello。使用[网络调试助手](https://www.dropbox.com/s/y7bbg6d6j67ubnc/%E7%BD%91%E7%BB%9C%E8%B0%83%E8%AF%95%E5%8A%A9%E6%89%8B%20%20%E9%87%8E%E4%BA%BA%E7%89%88.exe?dl=0)来测试你的tcp
+
 b). 写一个TCP client来测试你的TCP Server
+
 c). 阅读[这篇](http://www.cnblogs.com/vamei/archive/2012/10/30/2744955.html)和[这篇](http://www.cnblogs.com/vamei/archive/2012/10/31/2747885.html)，深入理解HTTP和TCP。
+
+## 14. Yeelight Sunflower Client
+Yeelight Sunflower 是青岛亿联客信息技术有限公司生产的一个[无线情景照明灯](https://www.yeelight.com/zh_CN/product/yeelight-sunflower)。阅读其官网提供的[用户手册](http://www.yeelight.com/download/yeelight_sunflower_user_manual_zh.pdf)，以及其提供给开发者的[API文档](http://www.yeelight.com/download/Yeelight_Sunflower_GW_API_v1.0.pdf)。实现一个控制灯的开关和RGB颜色的程序。
+
+【辅助程序】： 在ex14文件夹里面已经有了两个文件 ssdp.py 和 main.py。运行 main.py 打印出gateway的ip地址。
+
 
 ## 15. 数据结构之队列：
 a). 使用python的list实现一个队列（Queue）类，名叫MyQueue，它有如下方法：
